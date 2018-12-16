@@ -1,9 +1,12 @@
 import { Response, Request } from "express";
 import { validationResult } from "express-validator/check";
 import { Import } from "../types";
+import { groupByState } from "../util/groupByState";
 
 export const list = (req: Request, res: Response) => {
-  res.status(200).json(req.store.allImport());
+  const imports = req.store.allImport().reduce(groupByState, {});
+
+  res.status(200).json(imports);
 };
 
 export const create = (req: Request, res: Response) => {

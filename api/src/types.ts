@@ -2,8 +2,10 @@ export type ImportType = "word" | "pdf" | "wattpad" | "evernote";
 
 export type ExportType = "epub" | "pdf";
 
+export type ProcessableState = "pending" | "finished";
+
 export interface Processable {
-  state: "pending" | "finished";
+  state: ProcessableState;
   createdAt: Date;
   updatedAt: Date;
 };

@@ -8,6 +8,7 @@ You can submit all the answers to this assignment in a single repository (or as 
 
 Tell us about one of your commercial projects with Node.js and/or AngularJS.
 
+> See talent.io or linkedln profile
 
 ## 2. Document versioning
 
@@ -20,6 +21,8 @@ It should be able to show:
 
 Strive for disk space efficiency.
 
+> In order to versioned text based documents, I would probably use git. That will offers all the requirements
+and even more.
 
 ## 3. Node.js REST API
 
@@ -60,6 +63,7 @@ Add test coverage as you see fit.
 
 The project should be responsible for managing all the required dependencies and should run just by using `npm install` and `npm start`.
 
+> Solution in api folder
 
 ## 4. AngularJS
 
@@ -79,6 +83,8 @@ Add test coverage as you see fit.
 
 The project should be responsible for managing all the required dependencies and should run just by using `npm install` and `npm start`.
 
+> Solution in client folder, I haven't spend much time on this one as angular 1.x is not receiveing any future improvements. And
+learning a deprecated framework for a test seems like it could be a lot of time wasted
 
 ## 5. Bonus Question
 
@@ -102,11 +108,11 @@ const s = "abcdefg";
 const op1 = new Operation([{ move: 1 }, { insert: "FOO" }]);
 const op2 = new Operation([{ move: 3 }, { insert: "BAR" }]);
 
-op1.apply(s); // => "aFOObcdefg"
-op2.apply(s); // => "abcBARdefg"
+op1.apply(s); // ="aFOObcdefg"
+op2.apply(s); // ="abcBARdefg"
 
-const combined1 = Operation.combine(op1, op2); // => [{ move: 1 }, { insert: 'FOO' }, { move: 2}, { insert: 'BAR' } ]
-combined1.apply(s); // => "aFOObcBARdefg"
+const combined1 = Operation.combine(op1, op2); // =[{ move: 1 }, { insert: 'FOO' }, { move: 2}, { insert: 'BAR' } ]
+combined1.apply(s); // ="aFOObcBARdefg"
 
 const combined2 = Operation.combine(op2, op1);
 expect(combined2.apply(s)).to.equal(combined1.apply(s));
@@ -115,3 +121,9 @@ expect(combined2.apply(s)).to.equal(combined1.apply(s));
 Add test coverage to demonstrate the module functionality. Again, TypeScript is preferred in this solution.
 
 The project should be responsible for managing all the required dependencies and should run just by using `npm install` and `npm test`.
+
+> Solution in bonus folder.
+> Problem: The solution is not commutative as soon as there is more than 2 operations combined.
+> This is because the solution is eager as suggested by this line:
+> `const combined1 = Operation.combine(op1, op2); // =[{ move: 1 }, { insert: 'FOO' }, { move: 2}, { insert: 'BAR' } ]`
+> By making it lazy we could more easily support the commutative property
