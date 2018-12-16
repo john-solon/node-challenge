@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <h1>Most popular Books of All time</h1>
+  <div class="row mb-2">
+    <div class="col-6">TITLE</div>
+    <div class="col-2">PUBLISHED</div>
+    <div class="col-2">RATING</div>
+    <div class="col-2">BUY ON</div>
+  </div>
+  <div class="row mb-2" ng-repeat="book in books">
+    <div class="col-6">
+      <img ng-src="{{book.coverUrl}}" alt="{{book.name}}" class="thumb"/>
+      <p>{{book.title}}</a>
+      <p>{{book.author}}</p>
+    </div>
+    <div class="col-2">{{book.yearPublished}}</div>
+    <div class="col-2">{{book.rating}}/10</div>
+    <div class="col-2">
+      ok
+    </div>
+  </div>
+</div>
