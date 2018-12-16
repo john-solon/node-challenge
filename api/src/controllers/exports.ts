@@ -7,14 +7,13 @@ export const list = (req: Request, res: Response) => {
 };
 
 export const create = (req: Request, res: Response) => {
-  console.dir(req.body)
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
 
   const ex: Export = {
-    bookId: req.body.bookdId,
+    bookId: req.body.bookId,
     type: req.body.type,
     state: "pending",
     createdAt: new Date(),

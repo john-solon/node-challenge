@@ -6,14 +6,14 @@ interface ExportConfig {
 }
 
 const exportConfig: ExportConfig = {
-  "epub": 10,
-  "pdf": 25
+  "epub": 10000,
+  "pdf": 25000
 }
 
-const impportConfig = 60;
+const impportConfig = 60000;
 
 function onlyPending(p: Processable) {
-  p.state === 'pending'
+  return p.state === 'pending'
 }
 
 function overdue(p: Processable) {
@@ -23,7 +23,8 @@ function overdue(p: Processable) {
   } else {
     max = exportConfig[(p as Export).type]
   }
-  p.createdAt.getTime() - new Date().getTime() > max;
+
+  return new Date().getTime() - p.createdAt.getTime() > max;
 }
 
 function update(p: Processable) {

@@ -1,5 +1,5 @@
 import request from "supertest";
-import { app, store } from "../src/app";
+import { app } from "../src/app";
 
 describe("GET /api/imports", () => {
   it("should return 200 OK", () => {
@@ -11,9 +11,8 @@ describe("GET /api/imports", () => {
 describe("POST /api/imports", () => {
   it("should return 201 ACCEPTED when all params are correct", () => {
     return request(app).post("/api/imports")
-      .field("bookdId", "1")
-      .field("type", "word")
-      .field("url", "https://google.com")
+      .send({bookId: '1', type: "word", url: "https://google.com"})
+      .set('Accept', 'application/json')
       .expect(201);
   });
 

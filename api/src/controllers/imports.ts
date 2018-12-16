@@ -13,7 +13,7 @@ export const create = (req: Request, res: Response) => {
   }
 
   const im: Import = {
-    bookId: req.body.bookdId,
+    bookId: req.body.bookId,
     url: req.body.url,
     type: req.body.type,
     state: "pending",
